@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies Recommender</title>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/tmdb.png') }}" alt="TMDB Logo" width="200" height="200">
+    <h1>Movies Recommender</h1>
+    <form method="post">
+        <label for="movie_title">Enter Movie Title:</label>
+        <input type="text" id="movie_title" name="movie_title" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+    
+    <h2>Recommended Movies:</h2>
+    <ul>
+        {% for movie in recommended_movies %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
